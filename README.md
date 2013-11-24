@@ -21,7 +21,7 @@ How to install?
 
 **3)**  $ git clone https://github.com/liveperson/migdalor.git
 
-**4)**  $ mvn build
+**4)**  $ mvn install
  
 
 
