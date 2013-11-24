@@ -15,7 +15,13 @@ The migdalor framework let you manage the synchronization of the scheme revision
 
 How to install?
 ===============
-*1* >>mkdir migdalor
-*2* >>cd migdalor
-*1* >>git clone https://github.com/liveperson/migdalor.git
-*2* >>mvn build
+**1)**  $ mkdir migdalor
+
+**2)**  $ cd migdalor
+
+**3)**  $ git clone https://github.com/liveperson/migdalor.git
+
+**4)**  $ mvn build
+ 
+
+
