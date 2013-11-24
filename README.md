@@ -31,6 +31,11 @@ How to install?
 **3)**  $ git clone https://github.com/liveperson/migdalor.git
 
 **4)**  $ mvn install
+
+Run Demo:
+=========
+
+**1)**  $ java -jar examples/demo/target/demo-0.0.0.1-SNAPSHOT-shaded.jar
  
 
 
