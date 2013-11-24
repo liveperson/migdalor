@@ -1,0 +1,24 @@
+
+protocol ExampleForTest {
+    /**
+        Common header for all events sent
+        Consumed by: Storm filtering, hadoop readers...
+    */
+    @namespace("com.liveperson.global")
+    record CommonHeader {
+        /** The Schema version of the entire LP schema (replaced automatically after java source generation, by replacer maven plugin, with the artifact version), should be injected */
+        /** NEVER change or put any other field before schemaRevision */
+        string              type = "";
+        long                time = -1;
+    }
+
+    /**
+        Root for all LivePerson Events
+    */
+    @namespace("com.liveperson.global")
+    record TestExample {
+        /** Common Header of the event */
+        CommonHeader        header = null;
+        string              body   = "";
+    }
+}

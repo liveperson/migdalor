@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>avro-schema-header</artifactId>
+  <packaging>jar</packaging>
+
+
+  <parent>
+      <groupId>com.liveperson.migdalor</groupId>
+      <artifactId>header</artifactId>
+      <version>0.0.0.1-SNAPSHOT</version>
+  </parent>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.avro</groupId>
+                <artifactId>avro-maven-plugin</artifactId>
+                <version>1.7.3</version>
+                <executions>
+                    <execution>
+                        <id>schemas</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>idl-protocol</goal>
+                        </goals>
+                        <configuration>
+                            <includes>
+                                <include>Event.avdl</include>
+                            </includes>
+                            <fieldVisibility>PRIVATE</fieldVisibility>
+                            <sourceDirectory>src/test/resources</sourceDirectory>
+                            <outputDirectory>${project.build.directory}/generated-sources/java
+                            </outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+  <dependencies>
+
+      <dependency>
+          <groupId>org.apache.avro</groupId>
+          <artifactId>avro</artifactId>
+          <version>1.7.3</version>
+      </dependency>
+      <dependency>
+          <groupId>org.apache.avro</groupId>
+          <artifactId>avro-mapred</artifactId>
+          <version>1.7.3</version>
+      </dependency>
+      <!--<dependency>-->
+          <!--<groupId>org.apache.avro</groupId>-->
+          <!--<artifactId>avro-tools</artifactId>-->
+          <!--<version>1.7.3</version>-->
+          <!--<exclusions>-->
+              <!--<exclusion>-->
+                  <!--<artifactId>slf4j-api</artifactId>-->
+                  <!--<groupId>org.slf4j</groupId>-->
+              <!--</exclusion>-->
+          <!--</exclusions>-->
+      <!--</dependency>-->
+
+      <dependency>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-api</artifactId>
+      </dependency>
+
+      <dependency>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-log4j12</artifactId>
+          <version>1.6.1</version>
+          <scope>test</scope>
+      </dependency>
+
+
+      <!--<dependency>-->
+          <!--<groupId>${project.groupId}</groupId>-->
+          <!--<artifactId>schema-repo-zk-impl</artifactId>-->
+          <!--<version>${project.version}</version>-->
+      <!--</dependency>-->
+
+      <dependency>
+          <groupId>${project.groupId}</groupId>
+          <artifactId>header-api</artifactId>
+          <version>${project.version}</version>
+      </dependency>
+
+
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+       <scope>test</scope>
+    </dependency>
+
+      <dependency>
+          <groupId>commons-io</groupId>
+          <artifactId>commons-io</artifactId>
+          <scope>test</scope>
+      </dependency>
+
+      <dependency>
+          <groupId>org.mockito</groupId>
+          <artifactId>mockito-all</artifactId>
+          <scope>test</scope>
+      </dependency>
+
+  </dependencies>
+
+</project>

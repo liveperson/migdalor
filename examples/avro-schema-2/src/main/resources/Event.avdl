@@ -1,0 +1,13 @@
+
+protocol ExampleEvent {
+    /**
+        Example event
+    */
+    @namespace("com.liveperson.example")
+    record Event {
+       string              version = "2";
+       long                time = -1;
+       string              body   = "";
+       string              type   = "";
+    }
+}

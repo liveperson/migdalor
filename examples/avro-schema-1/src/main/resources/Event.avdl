@@ -1,0 +1,21 @@
+
+protocol ExampleEvent {
+
+ @namespace("com.liveperson.example")
+    enum Color {
+            NO_COLOR, BLUE, BLACK, WHITE, PINK
+    }
+
+    /**
+        Example event
+    */
+    @namespace("com.liveperson.example")
+    record Event {
+       string              version = "1";
+       long                time = -1;
+       string              body   = "no-body";
+       Color               color =  "NO_COLOR";
+    }
+
+
+}
