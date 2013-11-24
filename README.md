@@ -17,7 +17,7 @@ Prerequisite:
 =============
 java 1.7
 
-maven 3.4
+maven 3.0.4
 
 
 
