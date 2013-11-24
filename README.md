@@ -13,6 +13,15 @@ Avro, Protocol-Buffers, XML-Schema, Thrift etc.
 
 The migdalor framework let you manage the synchronization of the scheme revision between the producer and consumer to make the encoding/decoding smooth and transparent.
 
+Prerequisite:
+=============
+java 1.7
+
+maven 3.4
+
+
+
+
 How to install?
 ===============
 **1)**  $ mkdir migdalor
