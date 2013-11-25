@@ -24,16 +24,16 @@ maven 3.0.4
 
 Setup migdalor
 ===============
-create directory migdalor in your home directory:
+Create directory migdalor in your home directory:
 ```bash
 mkdir migdalor
 cd migdalor
 ```
-clone the migdalor project from github:
+Clone the migdalor project from github:
 ```bash
 git clone https://github.com/liveperson/migdalor.git
 ```
-install the project using maven:
+Install the project using maven:
 ```bash
 mvn install
 ```
@@ -43,6 +43,3 @@ Run Demo:
 ```bash
 java -jar examples/demo/target/demo-0.0.0.1-SNAPSHOT-shaded.jar
 ```
- 
-
-
