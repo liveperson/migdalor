@@ -6,8 +6,8 @@ package com.liveperson.migdalor.avro;/**
  * To change this template use File | Settings | File Templates.
  */
 
-import com.liveperson.global.CommonHeader;
-import com.liveperson.global.TestExample;
+import com.liveperson.example.Header;
+import com.liveperson.example.TestExample;
 import com.liveperson.migdalor.header.impl.MigdalorHeaderByteSerializer;
 import com.liveperson.migdalor.schema.api.SchemaDecoder;
 import com.liveperson.migdalor.schema.api.SchemaEncoder;
@@ -67,7 +67,7 @@ public class TestEvolutionDecoder {
     @Before
     public void setUp() throws Exception {
         TestExample event = TestExample.class.newInstance();
-        event.setHeader(new CommonHeader());
+        event.setHeader(new Header());
         schema = event.getSchema();
         schemaRepo = new InMemSchemaRepo<String>();
         schemaEncoder = new AvroEncoderImpl<TestExample>(schemaRepo,schema.toString(), version);
@@ -95,7 +95,7 @@ public class TestEvolutionDecoder {
         TestExample event = schemaDecoder.decode(ByteBuffer.wrap(encodedWithHeader));
         LOG.debug("event after decoding [{}]", event);
 
-        CommonHeader originalHeader = (CommonHeader)datum.get(HEADER);
+        Header originalHeader = (Header)datum.get(HEADER);
         Assert.assertEquals(originalHeader.getType().toString(),event.getHeader().getType().toString());
         Assert.assertEquals(originalHeader.getTime(),event.getHeader().getTime());
         Assert.assertEquals(datum.get(BODY).toString(),event.getBody().toString());
@@ -134,7 +134,7 @@ public class TestEvolutionDecoder {
         TestExample event = schemaDecoder.decode(ByteBuffer.wrap(encodedWithHeader));
         LOG.debug("event after decoding [{}]", event);
 
-        CommonHeader original = (CommonHeader)datum.get("header");
+        Header original = (Header)datum.get("header");
         Assert.assertEquals(original.getType().toString(),event.getHeader().getType().toString());
         Assert.assertEquals(original.getTime(),event.getHeader().getTime());
         Assert.assertEquals("",event.getBody().toString());
@@ -181,7 +181,7 @@ public class TestEvolutionDecoder {
 
     private GenericRecord createDatumNoBody(Schema myNewSchema) {
         GenericRecord datum = new GenericData.Record(myNewSchema);
-        CommonHeader commonHeader = new CommonHeader();
+        Header commonHeader = new Header();
         commonHeader.setType("TEST_TYPE");
         commonHeader.setTime(System.currentTimeMillis());
         datum.put(HEADER, commonHeader);
